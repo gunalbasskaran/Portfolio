@@ -1,22 +1,261 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>Gunal's Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Personal Portfolio</title>
+	<meta name="description" content="Personal portfolio — HTML/CSS/JS single-file template" />  <link rel="icon" type="image/png" href="assets/fevicon.png" />	<style>
+		:root{
+			--bg:#0b0f14;--surface:#0f1720;--muted:#9aa5b1;--accent:#7c5cff;--glass:rgba(255,255,255,0.03);
+			--success:#22c55e;--danger:#ef4444;--text:#e6eef6;--card:#0e1620;
+			--radius:12px;--shadow:0 6px 18px rgba(2,6,23,0.6);
+		}
+		[data-theme="light"]{
+			--bg:#f6f8fb;--surface:#ffffff;--muted:#475569;--accent:#6b46ff;--glass:rgba(2,6,23,0.03);
+			--success:#16a34a;--danger:#dc2626;--text:#0b1220;--card:#ffffff;--shadow:0 8px 24px rgba(11,18,32,0.06);
+		}
+		/* Reset & base */
+		*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:var(--text);background:linear-gradient(180deg,var(--bg),#071019);-webkit-font-smoothing:antialiased}
+		a{color:inherit;text-decoration:none}
+		img{max-width:100%;height:auto;display:block}
+
+		/* Layout */
+		.container{width:min(1100px,94%);margin:0 auto}
+		header{position:fixed;inset:0 0 auto 0;top:0;z-index:60;background:linear-gradient(180deg,rgba(0,0,0,0.12),transparent);backdrop-filter:blur(6px)}
+		.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:14px 0}
+		.brand{display:flex;align-items:center;gap:12px;font-weight:700}
+		.brand .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#4cc9f0);display:inline-grid;place-items:center;color:white;font-weight:800}
+		nav ul{display:flex;gap:16px;align-items:center;margin:0;padding:0;list-style:none}
+		nav a{padding:8px 10px;border-radius:8px;color:var(--muted);font-weight:600}
+		nav a:focus,nav a:hover{color:var(--text);background:var(--glass)}
+
+		.theme-toggle, .hamburger{background:transparent;border:0;color:var(--muted);cursor:pointer;padding:8px;border-radius:8px}
+		.hamburger{display:none}
+
+		main{padding-top:86px}
+
+		/* Hero */
+		.hero{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;padding:64px 0}
+		.hero-inner{display:flex;flex-direction:column;gap:18px}
+		.eyebrow{color:var(--accent);font-weight:700}
+		h1{font-size:clamp(2rem,4vw,3rem);margin:0;line-height:1.02}
+		.typing{color:var(--accent);font-weight:700}
+		.hero-meta{color:var(--muted);max-width:60ch}
+		.cta{display:inline-flex;gap:10px;align-items:center;padding:12px 16px;border-radius:10px;background:var(--accent);color:white;font-weight:700;box-shadow:var(--shadow);border:0;cursor:pointer}
+
+		/* Sections */
+		section{padding:48px 0}
+		.card-grid{display:grid;gap:18px}
+
+		/* About */
+		.about{display:grid;grid-template-columns:160px 1fr;gap:22px;align-items:start}
+		.avatar{width:160px;height:160px;border-radius:16px;background:linear-gradient(135deg,#25303a,#0b1220);display:grid;place-items:center;color:var(--accent);font-weight:800}
+		.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:14px}
+		.skill{background:var(--card);padding:12px;border-radius:10px}
+		.bar{height:8px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;margin-top:8px}
+		.bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#4cc9f0)}
+
+		/* Projects */
+		.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+		.project{background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow);transition:transform .28s ease,box-shadow .28s ease;border:1px solid rgba(255,255,255,0.02)}
+		.project:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.45)}
+		.project .meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+
+		/* Contact */
+		form{display:grid;gap:12px;max-width:760px}
+		input,textarea,select{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:8px;color:var(--text)}
+		input:focus,textarea:focus{outline:2px solid rgba(124,92,255,0.18);border-color:var(--accent)}
+		.btn{padding:12px 14px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:700;cursor:pointer}
+
+		footer{padding:28px 0;color:var(--muted);font-size:0.95rem}
+
+		/* Responsive */
+		@media (min-width:720px){
+			.hero{grid-template-columns:1fr 380px}
+			.about{grid-template-columns:220px 1fr}
+		}
+		@media (max-width:720px){
+			nav ul{display:none}
+			.hamburger{display:inline-flex}
+		}
+	</style>
 </head>
-
 <body>
-  <h1>Gunal's Portfolio</h1>
-  <h2>I'm a Front-end Developer</h2>
-  <hr />
-  <h3><a href="./public/movie-ranking.html">Movie Ranking Project</a></h3>
-  <img src="./assets/images/movie-ranking.png" height="200" alt="movie ranking project preview"/>
-  <h3><a href="./public/birthday-invite.html">Birthday Invite Project</a></h3>
-  <img src="./assets/images/birthday-invite.png" height="200" alt="birthday invite project preview"/>
-  <hr />
-  <a href="./public/about.html">About Me</a>
-  <a href="./public/contact.html">Contact Me</a>
-</body>
+	<header>
+		<div class="container nav">
+			<div class="brand">
+				<img src="assets/fevicon.png" alt="Logo" style="width:40px;height:40px;border-radius:10px">
+				<div>
+					<div style="font-weight:800">Gunal</div>
+					<div style="font-size:12px;color:var(--muted)">Frontend Developer</div>
+				</div>
+			</div>
+			<nav aria-label="Primary navigation">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#projects">Projects</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+			<div style="display:flex;gap:8px;align-items:center">
+				<button class="theme-toggle" id="themeToggle" aria-pressed="false" title="Toggle theme">🌗</button>
+				<button class="hamburger" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+			</div>
+		</div>
+		<div id="mobileMenu" style="display:none;padding:8px 16px;background:transparent">
+			<div class="container">
+				<a href="#home">Home</a> · <a href="#about">About</a> · <a href="#projects">Projects</a> · <a href="#contact">Contact</a>
+			</div>
+		</div>
+	</header>
 
+	<main class="container">
+		<section id="home" class="hero">
+			<div class="hero-inner">
+				<div class="eyebrow">Hi, I'm</div>
+				<h1>Frontend Developer crafting fast, accessible, modern web interfaces</h1>
+				<div class="typing" aria-live="polite" id="typing"></div>
+				<p class="hero-meta">I design and build accessible, performant interfaces using modern web technologies. I enjoy turning ideas into delightful products.</p>
+				<div style="display:flex;gap:12px;flex-wrap:wrap">
+					<button class="cta" id="viewProjects">View projects →</button>
+					<button class="cta" id="contactBtn" style="background:transparent;border:2px solid var(--accent);color:var(--accent)">Contact me</button>
+				</div>
+			</div>
+			<aside aria-hidden="true">
+			<div style="display:flex;flex-direction:column;gap:16px;align-items:center">
+				<img src="assets/image 1.png" alt="Profile" style="width:280px;height:280px;border-radius:12px;object-fit:cover">
+				<div style="text-align:center;color:var(--muted);max-width:200px">Actively seeking frontend internships & junior roles</div>
+				</div>
+			</aside>
+		</section>
+
+		<section id="about">
+			<h2>About Me</h2>
+			<div class="about">
+				<div class="avatar" role="img" aria-label="Profile placeholder">Y</div>
+				<div>
+					<p>I'm a frontend developer focused on building clean, accessible and performant interfaces. I specialize in JavaScript, modern CSS, and component-driven UIs.</p>
+					<p style="color:var(--muted);font-size:0.95rem">I enjoy turning complex ideas into simple, intuitive user interfaces that users love.</p>
+					<div class="skills">
+						<div class="skill"><strong>JavaScript</strong><div style="color:var(--muted);font-size:0.85rem;margin-top:4px">ES6+, DOM, async</div></div>
+						<div class="skill"><strong>React</strong><div style="color:var(--muted);font-size:0.85rem;margin-top:4px">Components, Hooks</div></div>
+						<div class="skill"><strong>HTML & CSS</strong><div style="color:var(--muted);font-size:0.85rem;margin-top:4px">Responsive, Flexbox</div></div>
+						<div class="skill"><strong>Accessibility</strong><div style="color:var(--muted);font-size:0.85rem;margin-top:4px">ARIA, Semantic HTML</div></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="projects">
+			<h2>Projects</h2>
+			<div class="projects-grid">
+				<article class="project" tabindex="0">
+				<img src="assets/image 2.png" alt="Project One" style="height:140px;border-radius:8px;object-fit:cover;width:100%">
+					<h3>Portfolio Website</h3>
+					<p style="color:var(--muted)">Responsive personal portfolio with dark/light mode toggle, smooth animations, and modern CSS Grid layout.</p>
+					<div class="meta"><div style="color:var(--muted)">HTML • CSS • JavaScript</div><div><a href="https://github.com/gunalbasskaran" target="_blank">Code</a> · <a href="#">Live</a></div></div>
+				</article>
+				<article class="project" tabindex="0">
+				<img src="assets/image 3.png" alt="Project Two" style="height:140px;border-radius:8px;object-fit:cover;width:100%">
+					<h3>Task Manager App</h3>
+					<p style="color:var(--muted)">Interactive task management application with real-time updates and local storage persistence.</p>
+					<div class="meta"><div style="color:var(--muted)">JavaScript • DOM API</div><div><a href="https://github.com/gunalbasskaran" target="_blank">Code</a> · <a href="#">Live</a></div></div>
+				</article>
+				<article class="project" tabindex="0">
+				<img src="assets/image 4.png" alt="Project Three" style="height:140px;border-radius:8px;object-fit:cover;width:100%">
+					<h3>E-Commerce UI</h3>
+					<p style="color:var(--muted)">Modern e-commerce interface with product filters, responsive grid layout, and smooth interactions.</p>
+					<div class="meta"><div style="color:var(--muted)">React • Tailwind CSS</div><div><a href="https://github.com/gunalbasskaran" target="_blank">Code</a> · <a href="#">Live</a></div></div>
+				</article>
+			</div>
+		</section>
+
+		<section id="contact">
+			<h2>Contact</h2>
+			<form id="contactForm" action="https://formsubmit.co/Gunalbasskaran@gmail.com" method="POST" novalidate>
+				<input type="text" id="name" name="name" placeholder="Your name" required />
+				<input type="email" id="email" name="email" placeholder="Your email" required />
+				<input type="text" id="subject" name="_subject" placeholder="Subject" />
+				<textarea id="message" name="message" rows="6" placeholder="Message" required></textarea>
+				<div style="display:flex;gap:10px;align-items:center">
+					<button class="btn" type="submit">Send message</button>
+					<div id="formFeedback" aria-live="polite" style="color:var(--muted)"></div>
+				</div>
+			</form>
+		</section>
+
+		<footer>
+			<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+				<div>© <strong>Gunal</strong> — Built with ❤️</div>
+				<div style="color:var(--muted);display:flex;gap:16px;align-items:center">
+					<a href="https://github.com/gunalbasskaran" target="_blank" title="GitHub">GitHub</a>
+					<a href="https://www.linkedin.com/in/gunal-" target="_blank" title="LinkedIn">LinkedIn</a>
+					<a href="mailto:Gunalbasskaran@gmail.com" title="Email">Email</a>
+				</div>
+			</div>
+		</footer>
+	</main>
+
+	<script>
+		// Theme toggle (persisted)
+		(function(){
+			const root = document.documentElement;
+			const toggle = document.getElementById('themeToggle');
+			const stored = localStorage.getItem('theme');
+			if(stored==='light') root.setAttribute('data-theme','light');
+			toggle.addEventListener('click', ()=>{
+				const isLight = root.getAttribute('data-theme') === 'light';
+				if(isLight){root.removeAttribute('data-theme');localStorage.setItem('theme','dark');toggle.setAttribute('aria-pressed','false')} else {root.setAttribute('data-theme','light');localStorage.setItem('theme','light');toggle.setAttribute('aria-pressed','true')}
+			});
+		})();
+
+		// Mobile menu
+		(function(){
+			const menu = document.getElementById('mobileMenu');
+			const btn = document.getElementById('menuToggle');
+			btn.addEventListener('click', ()=>{
+				const open = btn.getAttribute('aria-expanded') === 'true';
+				btn.setAttribute('aria-expanded', String(!open));
+				menu.style.display = open ? 'none' : 'block';
+			});
+		})();
+
+		// Typing effect
+		(function(){
+			const el = document.getElementById('typing');
+			const phrases = ['I build interfaces.','I design for users.','I optimize for performance.'];
+			let i=0,j=0,dir=1,timeout;
+			function tick(){
+				const current = phrases[i];
+				el.textContent = current.slice(0,j);
+				if(dir===1){ if(j<current.length) j++; else {dir=-1; timeout=1200;}} else { if(j>0) j--; else {dir=1;i=(i+1)%phrases.length; timeout=400; }}
+				timeout = timeout||80;
+				setTimeout(()=>{timeout=null;tick()},timeout);
+			}
+			tick();
+		})();
+
+		// Scroll to projects
+		document.getElementById('viewProjects').addEventListener('click', ()=>{
+			document.getElementById('projects').scrollIntoView({behavior:'smooth'});
+		});
+
+		// Scroll to contact
+		document.getElementById('contactBtn').addEventListener('click', ()=>{
+			document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+		});
+
+		// Contact form — FormSubmit.co handles validation & sends to email
+		(function(){
+			const form = document.getElementById('contactForm');
+			const feedback = document.getElementById('formFeedback');
+			form.addEventListener('submit', (e)=>{
+				feedback.style.color = 'var(--muted)';
+				feedback.textContent='Sending...';
+			});
+		})();
+	</script>
+</body>
 </html>
+
