@@ -133,7 +133,7 @@
 		<section id="about">
 			<h2>About Me</h2>
 			<div class="about">
-				<div class="avatar" role="img" aria-label="Profile placeholder">Y</div>
+				<img src="assets/about.png" alt="About" style="width:160px;height:160px;border-radius:16px;object-fit:cover">
 				<div>
 					<p>I'm a frontend developer focused on building clean, accessible and performant interfaces. I specialize in JavaScript, modern CSS, and component-driven UIs.</p>
 					<p style="color:var(--muted);font-size:0.95rem">I enjoy turning complex ideas into simple, intuitive user interfaces that users love.</p>
@@ -173,16 +173,38 @@
 
 		<section id="contact">
 			<h2>Contact</h2>
-			<form id="contactForm" action="https://formsubmit.co/Gunalbasskaran@gmail.com" method="POST" novalidate>
-				<input type="text" id="name" name="name" placeholder="Your name" required />
-				<input type="email" id="email" name="email" placeholder="Your email" required />
-				<input type="text" id="subject" name="_subject" placeholder="Subject" />
-				<textarea id="message" name="message" rows="6" placeholder="Message" required></textarea>
-				<div style="display:flex;gap:10px;align-items:center">
-					<button class="btn" type="submit">Send message</button>
-					<div id="formFeedback" aria-live="polite" style="color:var(--muted)"></div>
+			<div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+				<div>
+					<h3 style="margin-bottom:24px">Send me a message</h3>
+					<form id="contactForm" action="https://formsubmit.co/Gunalbasskaran@gmail.com" method="POST" novalidate>
+						<input type="text" id="name" name="name" placeholder="Your name" required />
+						<input type="email" id="email" name="email" placeholder="Your email" required />
+						<input type="text" id="subject" name="_subject" placeholder="Subject" />
+						<textarea id="message" name="message" rows="6" placeholder="Message" required></textarea>
+						<div style="display:flex;gap:10px;align-items:center">
+							<button class="btn" type="submit">Send message</button>
+							<div id="formFeedback" aria-live="polite" style="color:var(--muted)"></div>
+						</div>
+					</form>
 				</div>
-			</form>
+				<div style="padding-top:12px">
+					<h3 style="margin-bottom:32px">Or connect with me:</h3>
+					<div style="display:flex;flex-direction:column;gap:20px">
+						<a href="https://github.com/gunalbasskaran" target="_blank" style="display:flex;align-items:center;gap:12px;color:var(--accent);font-weight:600;text-decoration:none;transition:opacity 0.2s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+							<span>GitHub</span>
+							<span style="font-size:1.2rem">→</span>
+						</a>
+						<a href="https://www.linkedin.com/in/gunal-" target="_blank" style="display:flex;align-items:center;gap:12px;color:var(--accent);font-weight:600;text-decoration:none;transition:opacity 0.2s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+							<span>LinkedIn</span>
+							<span style="font-size:1.2rem">→</span>
+						</a>
+						<a href="mailto:Gunalbasskaran@gmail.com" style="display:flex;align-items:center;gap:12px;color:var(--accent);font-weight:600;text-decoration:none;transition:opacity 0.2s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+							<span>Gunalbasskaran@gmail.com</span>
+							<span style="font-size:1.2rem">→</span>
+						</a>
+					</div>
+				</div>
+			</div>
 		</section>
 
 		<footer>
