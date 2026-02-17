@@ -1,283 +1,577 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<title>Personal Portfolio</title>
-	<meta name="description" content="Personal portfolio — HTML/CSS/JS single-file template" />  <link rel="icon" type="image/png" href="assets/fevicon.png" />	<style>
-		:root{
-			--bg:#0b0f14;--surface:#0f1720;--muted:#9aa5b1;--accent:#7c5cff;--glass:rgba(255,255,255,0.03);
-			--success:#22c55e;--danger:#ef4444;--text:#e6eef6;--card:#0e1620;
-			--radius:12px;--shadow:0 6px 18px rgba(2,6,23,0.6);
-		}
-		[data-theme="light"]{
-			--bg:#f6f8fb;--surface:#ffffff;--muted:#475569;--accent:#6b46ff;--glass:rgba(2,6,23,0.03);
-			--success:#16a34a;--danger:#dc2626;--text:#0b1220;--card:#ffffff;--shadow:0 8px 24px rgba(11,18,32,0.06);
-		}
-		/* Reset & base */
-		*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:var(--text);background:linear-gradient(180deg,var(--bg),#071019);-webkit-font-smoothing:antialiased}
-		a{color:inherit;text-decoration:none}
-		img{max-width:100%;height:auto;display:block}
+  <!-- ============================================================
+       Gunal Basskaran — Full Stack Developer | AI/ML Student
+       Production-ready one-page portfolio
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gunal Basskaran — Full Stack Developer | AI/ML Student</title>
 
-		/* Layout */
-		.container{width:min(1100px,94%);margin:0 auto}
-		header{position:fixed;inset:0 0 auto 0;top:0;z-index:60;background:linear-gradient(180deg,rgba(0,0,0,0.12),transparent);backdrop-filter:blur(6px)}
-		.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:14px 0}
-		.brand{display:flex;align-items:center;gap:12px;font-weight:700}
-		.brand .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#4cc9f0);display:inline-grid;place-items:center;color:white;font-weight:800}
-		nav ul{display:flex;gap:16px;align-items:center;margin:0;padding:0;list-style:none}
-		nav a{padding:8px 10px;border-radius:8px;color:var(--muted);font-weight:600}
-		nav a:focus,nav a:hover{color:var(--text);background:var(--glass)}
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Gunal Basskaran is a Full Stack Developer and AI/ML Student who builds clean, modern, and performant web applications. Open to jobs, internships, and freelance work." />
+  <meta name="keywords" content="Gunal Basskaran, Full Stack Developer, AI ML Student, Web Developer, Portfolio, HTML, CSS, JavaScript, Python" />
+  <meta name="author" content="Gunal Basskaran" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://gunalbasskaran.github.io/Portfolio/" />
 
-		.theme-toggle, .hamburger{background:transparent;border:0;color:var(--muted);cursor:pointer;padding:8px;border-radius:8px}
-		.hamburger{display:none}
+  <!-- Open Graph -->
+  <meta property="og:title" content="Gunal Basskaran — Full Stack Developer | AI/ML Student"  />
+  <meta property="og:description" content="Building clean & modern websites. Full Stack Developer and AI/ML Student open to jobs, internships, and freelance opportunities." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gunalbasskaran.github.io/Portfolio/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=630&fit=crop" />
+  <meta property="og:locale" content="en_US" />
 
-		main{padding-top:86px}
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gunal Basskaran — Full Stack Developer" />
+  <meta name="twitter:description" content="Building clean & modern websites. Open to jobs, internships, and freelance." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=630&fit=crop" />
 
-		/* Hero */
-		.hero{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;padding:64px 0}
-		.hero-inner{display:flex;flex-direction:column;gap:18px}
-		.eyebrow{color:var(--accent);font-weight:700}
-		h1{font-size:clamp(2rem,4vw,3rem);margin:0;line-height:1.02}
-		.typing{color:var(--accent);font-weight:700}
-		.hero-meta{color:var(--muted);max-width:60ch}
-		.cta{display:inline-flex;gap:10px;align-items:center;padding:12px 16px;border-radius:10px;background:var(--accent);color:white;font-weight:700;box-shadow:var(--shadow);border:0;cursor:pointer}
+  <!-- JSON-LD Person Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Gunal Basskaran",
+    "url": "https://gunalbasskaran.github.io/Portfolio/",
+    "jobTitle": "Full Stack Developer",
+    "description": "Full Stack Developer and AI/ML Student building clean & modern websites.",
+    "sameAs": [
+      "https://github.com/gunalbasskaran",
+      "https://www.linkedin.com/in/gunal-"
+    ],
+    "knowsAbout": ["HTML", "CSS", "JavaScript", "Python", "Machine Learning"]
+  }
+  </script>
 
-		/* Sections */
-		section{padding:48px 0}
-		.card-grid{display:grid;gap:18px}
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 
-		/* About */
-		.about{display:grid;grid-template-columns:160px 1fr;gap:22px;align-items:start}
-		.avatar{width:160px;height:160px;border-radius:16px;background:linear-gradient(135deg,#25303a,#0b1220);display:grid;place-items:center;color:var(--accent);font-weight:800}
-		.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:14px}
-		.skill{background:var(--card);padding:12px;border-radius:10px}
-		.bar{height:8px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;margin-top:8px}
-		.bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#4cc9f0)}
-
-		/* Projects */
-		.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-		.project{background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow);transition:transform .28s ease,box-shadow .28s ease;border:1px solid rgba(255,255,255,0.02)}
-		.project:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.45)}
-		.project .meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
-
-		/* Contact */
-		form{display:grid;gap:12px;max-width:760px}
-		input,textarea,select{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:8px;color:var(--text)}
-		input:focus,textarea:focus{outline:2px solid rgba(124,92,255,0.18);border-color:var(--accent)}
-		.btn{padding:12px 14px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:700;cursor:pointer}
-
-		footer{padding:28px 0;color:var(--muted);font-size:0.95rem}
-
-		/* Responsive */
-		@media (min-width:720px){
-			.hero{grid-template-columns:1fr 380px}
-			.about{grid-template-columns:220px 1fr}
-		}
-		@media (max-width:720px){
-			nav ul{display:none}
-			.hamburger{display:inline-flex}
-		}
-	</style>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
+
 <body>
-	<header>
-		<div class="container nav">
-			<div class="brand">
-				<img src="assets/fevicon.png" alt="Logo" style="width:40px;height:40px;border-radius:10px">
-				<div>
-					<div style="font-weight:800">Gunal</div>
-					<div style="font-size:12px;color:var(--muted)">Frontend Developer</div>
-				</div>
-			</div>
-			<nav aria-label="Primary navigation">
-				<ul>
-					<li><a href="#home">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#projects">Projects</a></li>
-					<li><a href="#contact">Contact</a></li>
-				</ul>
-			</nav>
-			<div style="display:flex;gap:8px;align-items:center">
-				<button class="theme-toggle" id="themeToggle" aria-pressed="false" title="Toggle theme">🌗</button>
-				<button class="hamburger" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">☰</button>
-			</div>
-		</div>
-		<div id="mobileMenu" style="display:none;padding:8px 16px;background:transparent">
-			<div class="container">
-				<a href="#home">Home</a> · <a href="#about">About</a> · <a href="#projects">Projects</a> · <a href="#contact">Contact</a>
-			</div>
-		</div>
-	</header>
+  <!-- ========== FULLSCREEN LOADER ========== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__content">
+      <span class="loader__text">GUNAL</span>
+      <span class="loader__line"></span>
+    </div>
+  </div>
 
-	<main class="container">
-		<section id="home" class="hero">
-			<div class="hero-inner">
-				<div class="eyebrow">Hi, I'm</div>
-				<h1>Frontend Developer crafting fast, accessible, modern web interfaces</h1>
-				<div class="typing" aria-live="polite" id="typing"></div>
-				<p class="hero-meta">I design and build accessible, performant interfaces using modern web technologies. I enjoy turning ideas into delightful products.</p>
-				<div style="display:flex;gap:12px;flex-wrap:wrap">
-					<button class="cta" id="viewProjects">View projects →</button>
-					<button class="cta" id="contactBtn" style="background:transparent;border:2px solid var(--accent);color:var(--accent)">Contact me</button>
-				</div>
-			</div>
-			<aside aria-hidden="true">
-			<div style="display:flex;flex-direction:column;gap:16px;align-items:center">
-				<img src="assets/image 1.png" alt="Profile" style="width:280px;height:280px;border-radius:12px;object-fit:cover">
-				<div style="text-align:center;color:var(--muted);max-width:200px">Actively seeking frontend internships & junior roles</div>
-				</div>
-			</aside>
-		</section>
+  <!-- ========== SKIP LINK (Accessibility) ========== -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-		<section id="about">
-			<h2>About Me</h2>
-			<div class="about">
-				<img src="assets/about.png" alt="About" style="width:160px;height:160px;border-radius:16px;object-fit:cover">
-				<div>
-					<p>I'm a frontend developer focused on building clean, accessible and performant interfaces. I specialize in JavaScript, modern CSS, and component-driven UIs.</p>
-					<p style="color:var(--muted);font-size:0.95rem">I enjoy turning complex ideas into simple, intuitive user interfaces that users love.</p>
-					<div class="skills">
-						<div class="skill"><strong>JavaScript</strong><div style="color:var(--muted);font-size:0.85rem;margin-top:4px">ES6+, DOM, async</div></div>
-						<div class="skill"><strong>React</strong><div style="color:var(--muted);font-size:0.85rem;margin-top:4px">Components, Hooks</div></div>
-						<div class="skill"><strong>HTML & CSS</strong><div style="color:var(--muted);font-size:0.85rem;margin-top:4px">Responsive, Flexbox</div></div>
-						<div class="skill"><strong>Accessibility</strong><div style="color:var(--muted);font-size:0.85rem;margin-top:4px">ARIA, Semantic HTML</div></div>
-					</div>
-				</div>
-			</div>
-		</section>
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" id="navbar" role="banner">
+    <div class="container navbar__inner">
+      <!-- Logo -->
+      <a href="#hero" class="navbar__logo" aria-label="G. — Home">
+        <span class="logo-text">G</span><span class="logo-dot">.</span>
+      </a>
 
-		<section id="projects">
-			<h2>Projects</h2>
-			<div class="projects-grid">
-				<article class="project" tabindex="0">
-				<img src="assets/image 2.png" alt="Project One" style="height:140px;border-radius:8px;object-fit:cover;width:100%">
-					<h3>Portfolio Website</h3>
-					<p style="color:var(--muted)">Responsive personal portfolio with dark/light mode toggle, smooth animations, and modern CSS Grid layout.</p>
-					<div class="meta"><div style="color:var(--muted)">HTML • CSS • JavaScript</div><div><a href="https://github.com/gunalbasskaran" target="_blank">Code</a> · <a href="#">Live</a></div></div>
-				</article>
-				<article class="project" tabindex="0">
-				<img src="assets/image 3.png" alt="Project Two" style="height:140px;border-radius:8px;object-fit:cover;width:100%">
-					<h3>Task Manager App</h3>
-					<p style="color:var(--muted)">Interactive task management application with real-time updates and local storage persistence.</p>
-					<div class="meta"><div style="color:var(--muted)">JavaScript • DOM API</div><div><a href="https://github.com/gunalbasskaran" target="_blank">Code</a> · <a href="#">Live</a></div></div>
-				</article>
-				<article class="project" tabindex="0">
-				<img src="assets/image 4.png" alt="Project Three" style="height:140px;border-radius:8px;object-fit:cover;width:100%">
-					<h3>E-Commerce UI</h3>
-					<p style="color:var(--muted)">Modern e-commerce interface with product filters, responsive grid layout, and smooth interactions.</p>
-					<div class="meta"><div style="color:var(--muted)">React • Tailwind CSS</div><div><a href="https://github.com/gunalbasskaran" target="_blank">Code</a> · <a href="#">Live</a></div></div>
-				</article>
-			</div>
-		</section>
+      <!-- Desktop Navigation -->
+      <nav class="navbar__nav" id="nav-menu" role="navigation" aria-label="Main navigation">
+        <ul class="navbar__list">
+          <li><a href="#hero" class="navbar__link active">Home</a></li>
+          <li><a href="#about" class="navbar__link">About</a></li>
+          <li><a href="#skills" class="navbar__link">Skills</a></li>
+          <li><a href="#projects" class="navbar__link">Projects</a></li>
+          <li><a href="#contact" class="navbar__link">Contact</a></li>
+        </ul>
+      </nav>
 
-		<section id="contact">
-			<h2>Contact</h2>
-			<div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
-				<div>
-					<h3 style="margin-bottom:24px">Send me a message</h3>
-					<form id="contactForm" action="https://formsubmit.co/Gunalbasskaran@gmail.com" method="POST" novalidate>
-						<input type="text" id="name" name="name" placeholder="Your name" required />
-						<input type="email" id="email" name="email" placeholder="Your email" required />
-						<input type="text" id="subject" name="_subject" placeholder="Subject" />
-						<textarea id="message" name="message" rows="6" placeholder="Message" required></textarea>
-						<div style="display:flex;gap:10px;align-items:center">
-							<button class="btn" type="submit">Send message</button>
-							<div id="formFeedback" aria-live="polite" style="color:var(--muted)"></div>
-						</div>
-					</form>
-				</div>
-				<div style="padding-top:12px">
-					<h3 style="margin-bottom:32px">Or connect with me:</h3>
-					<div style="display:flex;flex-direction:column;gap:20px">
-						<a href="https://github.com/gunalbasskaran" target="_blank" style="display:flex;align-items:center;gap:12px;color:var(--accent);font-weight:600;text-decoration:none;transition:opacity 0.2s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-							<span>GitHub</span>
-							<span style="font-size:1.2rem">→</span>
-						</a>
-						<a href="https://www.linkedin.com/in/gunal-" target="_blank" style="display:flex;align-items:center;gap:12px;color:var(--accent);font-weight:600;text-decoration:none;transition:opacity 0.2s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-							<span>LinkedIn</span>
-							<span style="font-size:1.2rem">→</span>
-						</a>
-						<a href="mailto:Gunalbasskaran@gmail.com" style="display:flex;align-items:center;gap:12px;color:var(--accent);font-weight:600;text-decoration:none;transition:opacity 0.2s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-							<span>Gunalbasskaran@gmail.com</span>
-							<span style="font-size:1.2rem">→</span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>
+      <!-- Mobile Menu Toggle -->
+      <button class="navbar__toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
 
-		<footer>
-			<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-				<div>© <strong>Gunal</strong> — Built with ❤️</div>
-				<div style="color:var(--muted);display:flex;gap:16px;align-items:center">
-					<a href="https://github.com/gunalbasskaran" target="_blank" title="GitHub">GitHub</a>
-					<a href="https://www.linkedin.com/in/gunal-" target="_blank" title="LinkedIn">LinkedIn</a>
-					<a href="mailto:Gunalbasskaran@gmail.com" title="Email">Email</a>
-				</div>
-			</div>
-		</footer>
-	</main>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="main-content">
 
-	<script>
-		// Theme toggle (persisted)
-		(function(){
-			const root = document.documentElement;
-			const toggle = document.getElementById('themeToggle');
-			const stored = localStorage.getItem('theme');
-			if(stored==='light') root.setAttribute('data-theme','light');
-			toggle.addEventListener('click', ()=>{
-				const isLight = root.getAttribute('data-theme') === 'light';
-				if(isLight){root.removeAttribute('data-theme');localStorage.setItem('theme','dark');toggle.setAttribute('aria-pressed','false')} else {root.setAttribute('data-theme','light');localStorage.setItem('theme','light');toggle.setAttribute('aria-pressed','true')}
-			});
-		})();
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="hero__overlay"></div>
+      <div class="container hero__content">
+        <p class="hero__greeting fade-in">Hello, I am</p>
+        <h1 class="hero__name fade-in">Gunal Basskaran</h1>
+        <p class="hero__headline fade-in">
+          <span id="typed-text"></span><span class="cursor" aria-hidden="true">|</span>
+        </p>
+        <p class="hero__sub fade-in">Full Stack Developer &amp; AI/ML Student crafting performant, accessible digital experiences.</p>
+        <div class="hero__cta fade-in">
+          <a href="#projects" class="btn btn--primary">View Projects</a>
+          <a href="#contact" class="btn btn--outline">Get in Touch</a>
+        </div>
+      </div>
+      <!-- Scroll indicator -->
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-text">Scroll</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
 
-		// Mobile menu
-		(function(){
-			const menu = document.getElementById('mobileMenu');
-			const btn = document.getElementById('menuToggle');
-			btn.addEventListener('click', ()=>{
-				const open = btn.getAttribute('aria-expanded') === 'true';
-				btn.setAttribute('aria-expanded', String(!open));
-				menu.style.display = open ? 'none' : 'block';
-			});
-		})();
+    <!-- ========== ABOUT SECTION ========== -->
+    <section class="about section" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <h2 class="section__title fade-in" id="about-heading">About <span class="highlight">Me</span></h2>
+        <p class="section__subtitle fade-in">Get to know the person behind the code</p>
 
-		// Typing effect
-		(function(){
-			const el = document.getElementById('typing');
-			const phrases = ['I build interfaces.','I design for users.','I optimize for performance.'];
-			let i=0,j=0,dir=1,timeout;
-			function tick(){
-				const current = phrases[i];
-				el.textContent = current.slice(0,j);
-				if(dir===1){ if(j<current.length) j++; else {dir=-1; timeout=1200;}} else { if(j>0) j--; else {dir=1;i=(i+1)%phrases.length; timeout=400; }}
-				timeout = timeout||80;
-				setTimeout(()=>{timeout=null;tick()},timeout);
-			}
-			tick();
-		})();
+        <div class="about__grid">
+          <!-- About Image -->
+          <div class="about__image-wrapper fade-in">
+            <div class="about__image-frame">
+              <img
+                src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=600&h=700&fit=crop"
+                alt="Developer workspace with code on screen"
+                class="about__image"
+                loading="lazy"
+                width="600"
+                height="700"
+              />
+            </div>
+          </div>
 
-		// Scroll to projects
-		document.getElementById('viewProjects').addEventListener('click', ()=>{
-			document.getElementById('projects').scrollIntoView({behavior:'smooth'});
-		});
+          <!-- About Text -->
+          <div class="about__text fade-in">
+            <h3 class="about__intro">A passionate developer driven by curiosity and clean code.</h3>
+            <p>
+              I am Gunal Basskaran, a Full Stack Developer and AI/ML student with a strong passion for building modern, responsive, and user-friendly web applications. I believe great software starts with empathy for the end user and ends with code that is clean, maintainable, and performant.
+            </p>
+            <p>
+              Currently pursuing my studies with a focus on Artificial Intelligence and Machine Learning, I bridge the gap between intelligent systems and intuitive user interfaces. I enjoy turning complex problems into simple, elegant solutions.
+            </p>
+            <p>
+              Outside of academics, I am actively seeking job and internship opportunities as well as freelance projects where I can contribute, grow, and deliver real value. I am always eager to collaborate on meaningful projects.
+            </p>
 
-		// Scroll to contact
-		document.getElementById('contactBtn').addEventListener('click', ()=>{
-			document.getElementById('contact').scrollIntoView({behavior:'smooth'});
-		});
+            <div class="about__details">
+              <div class="about__detail-item">
+                <span class="about__detail-label">Focus</span>
+                <span class="about__detail-value">Web Development &amp; AI/ML</span>
+              </div>
+              <div class="about__detail-item">
+                <span class="about__detail-label">Education</span>
+                <span class="about__detail-value">AI &amp; Machine Learning Student</span>
+              </div>
+              <div class="about__detail-item">
+                <span class="about__detail-label">Availability</span>
+                <span class="about__detail-value">Open to Opportunities</span>
+              </div>
+            </div>
 
-		// Contact form — FormSubmit.co handles validation & sends to email
-		(function(){
-			const form = document.getElementById('contactForm');
-			const feedback = document.getElementById('formFeedback');
-			form.addEventListener('submit', (e)=>{
-				feedback.style.color = 'var(--muted)';
-				feedback.textContent='Sending...';
-			});
-		})();
-	</script>
+            <a href="#contact" class="btn btn--primary">Let's Connect</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SKILLS SECTION ========== -->
+    <section class="skills section section--dark" id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <h2 class="section__title fade-in" id="skills-heading">My <span class="highlight">Skills</span></h2>
+        <p class="section__subtitle fade-in">Technologies and tools I work with</p>
+
+        <div class="skills__grid">
+          <!-- HTML -->
+          <div class="skill-card fade-in" tabindex="0">
+            <div class="skill-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+                <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.071-.999.07-.998.071-.999H6.53l.07.999.211 2.713h7.939l-.334 3.653-2.892.831-2.875-.832-.204-2.175h-2.06l.378 4.318 4.761 1.373 4.708-1.373.632-6.766H8.531z"/>
+              </svg>
+            </div>
+            <h3 class="skill-card__title">HTML5</h3>
+            <p class="skill-card__desc">Semantic markup, accessibility-first structure, SEO-optimized documents.</p>
+          </div>
+
+          <!-- CSS -->
+          <div class="skill-card fade-in" tabindex="0">
+            <div class="skill-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+                <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.413l.213 2.622 10.125.002-.255 2.716h-6.68l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.002l5.355-1.12.726-13.47z"/>
+              </svg>
+            </div>
+            <h3 class="skill-card__title">CSS3</h3>
+            <p class="skill-card__desc">Flexbox, Grid, animations, responsive design, and modern layouts.</p>
+          </div>
+
+          <!-- JavaScript -->
+          <div class="skill-card fade-in" tabindex="0">
+            <div class="skill-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+                <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.405-.6-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+              </svg>
+            </div>
+            <h3 class="skill-card__title">JavaScript</h3>
+            <p class="skill-card__desc">ES6+, DOM manipulation, async programming, and interactive UIs.</p>
+          </div>
+
+          <!-- Python -->
+          <div class="skill-card fade-in" tabindex="0">
+            <div class="skill-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+                <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09-.33.22zM21.1 6.11l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.89.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01.21.03zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08-.33.23z"/>
+              </svg>
+            </div>
+            <h3 class="skill-card__title">Python</h3>
+            <p class="skill-card__desc">Data analysis, machine learning, scripting, and backend development.</p>
+          </div>
+
+          <!-- React (Bonus skill) -->
+          <div class="skill-card fade-in" tabindex="0">
+            <div class="skill-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+            </div>
+            <h3 class="skill-card__title">Git &amp; GitHub</h3>
+            <p class="skill-card__desc">Version control, collaboration workflows, and open-source contributions.</p>
+          </div>
+
+          <!-- AI/ML -->
+          <div class="skill-card fade-in" tabindex="0">
+            <div class="skill-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+                <path d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79s7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58s9.14-3.49 12.65 0L21 3v7.12zM12.5 8v4.25l3.5 2.08-.72 1.21L11 13V8h1.5z"/>
+              </svg>
+            </div>
+            <h3 class="skill-card__title">AI / ML</h3>
+            <p class="skill-card__desc">Neural networks, data preprocessing, model training, and evaluation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PROJECTS SECTION ========== -->
+    <section class="projects section" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <h2 class="section__title fade-in" id="projects-heading">My <span class="highlight">Projects</span></h2>
+        <p class="section__subtitle fade-in">A selection of work I have built and shipped</p>
+
+        <div class="projects__grid">
+
+          <!-- Project 1: Escape_Run -->
+          <article class="project-card fade-in" tabindex="0">
+            <div class="project-card__image-wrapper">
+              <img
+                src="assets/images/project1.png"
+                alt="Escape_Run browser-based game with interactive gameplay"
+                class="project-card__image"
+                loading="lazy"
+                width="600"
+                height="400"
+              />
+              <div class="project-card__overlay">
+                <div class="project-card__links">
+                  <a href="https://github.com/gunalbasskaran" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="View Escape_Run source code on GitHub">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  </a>
+                  <a href="https://website-projects-sable.vercel.app" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="View Escape_Run live demo">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7H12z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Escape_Run</h3>
+              <p class="project-card__desc">A simple browser-based game demonstrating JavaScript game logic, interactive gameplay mechanics, and responsive design.</p>
+              <div class="project-card__tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Novapay -->
+          <article class="project-card fade-in" tabindex="0">
+            <div class="project-card__image-wrapper">
+              <img
+                src="assets/images/project2.png"
+                alt="Novapay modern payment website interface"
+                class="project-card__image"
+                loading="lazy"
+                width="600"
+                height="400"
+              />
+              <div class="project-card__overlay">
+                <div class="project-card__links">
+                  <a href="https://github.com/gunalbasskaran" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="View Novapay source code on GitHub">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  </a>
+                  <a href="https://website-projects-3en5.vercel.app" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="View Novapay live demo">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7H12z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Novapay</h3>
+              <p class="project-card__desc">A model payment website interface focusing on modern UI design, structured layouts, and basic front-end interactivity.</p>
+              <div class="project-card__tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Resilinet -->
+          <article class="project-card fade-in" tabindex="0">
+            <div class="project-card__image-wrapper">
+              <img
+                src="assets/images/project3.png"
+                alt="Resilinet weather alert website with real-time notifications"
+                class="project-card__image"
+                loading="lazy"
+                width="600"
+                height="400"
+              />
+              <div class="project-card__overlay">
+                <div class="project-card__links">
+                  <a href="https://github.com/gunalbasskaran" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="View Resilinet source code on GitHub">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  </a>
+                  <a href="https://website-projects-evmt.vercel.app" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="View Resilinet live demo">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7H12z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Resilinet</h3>
+              <p class="project-card__desc">A weather alert website that displays weather information and alert-style notifications through a clean, informative interface.</p>
+              <div class="project-card__tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: SharePlate -->
+          <article class="project-card fade-in" tabindex="0">
+            <div class="project-card__image-wrapper">
+              <img
+                src="assets/images/project4.png"
+                alt="SharePlate food-sharing platform connecting communities"
+                class="project-card__image"
+                loading="lazy"
+                width="600"
+                height="400"
+              />
+              <div class="project-card__overlay">
+                <div class="project-card__links">
+                  <a href="https://github.com/gunalbasskaran" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="View SharePlate source code on GitHub">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  </a>
+                  <a href="https://website-projects-pyz9.vercel.app" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="View SharePlate live demo">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7H12z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">SharePlate</h3>
+              <p class="project-card__desc">A food-sharing concept website connecting people with surplus food to those in need, emphasizing social impact, accessibility, and responsive UI.</p>
+              <div class="project-card__tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5: TerraSheild -->
+          <article class="project-card fade-in" tabindex="0">
+            <div class="project-card__image-wrapper">
+              <img
+                src="assets/images/project5.png"
+                alt="TerraSheild climate and ecosystem protection awareness website"
+                class="project-card__image"
+                loading="lazy"
+                width="600"
+                height="400"
+              />
+              <div class="project-card__overlay">
+                <div class="project-card__links">
+                  <a href="https://github.com/gunalbasskaran" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="View TerraSheild source code on GitHub">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  </a>
+                  <a href="https://website-projects-rs6i.vercel.app" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="View TerraSheild live demo">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7H12z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">TerraSheild</h3>
+              <p class="project-card__desc">A climate and ecosystem protection awareness website promoting environmental conservation using informative sections and interactive layouts.</p>
+              <div class="project-card__tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section class="contact section section--dark" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 class="section__title fade-in" id="contact-heading">Get in <span class="highlight">Touch</span></h2>
+        <p class="section__subtitle fade-in">Have a project in mind or want to connect? Drop me a message.</p>
+
+        <div class="contact__grid">
+          <!-- Contact Info -->
+          <div class="contact__info fade-in">
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </div>
+              <div>
+                <h3 class="contact__info-title">Email</h3>
+                <a href="mailto:gunalbasskaran@gmail.com" class="contact__info-link">gunalbasskaran@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </div>
+              <div>
+                <h3 class="contact__info-title">GitHub</h3>
+                <a href="https://github.com/gunalbasskaran" target="_blank" rel="noopener noreferrer" class="contact__info-link">github.com/gunalbasskaran</a>
+              </div>
+            </div>
+
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </div>
+              <div>
+                <h3 class="contact__info-title">LinkedIn</h3>
+                <a href="https://www.linkedin.com/in/gunal-" target="_blank" rel="noopener noreferrer" class="contact__info-link">linkedin.com/in/gunal-</a>
+              </div>
+            </div>
+
+            <div class="contact__availability">
+              <span class="contact__status-dot" aria-hidden="true"></span>
+              Currently available for new opportunities
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <form class="contact__form fade-in" id="contact-form" novalidate aria-label="Contact form">
+            <div class="form-group">
+              <label for="form-name" class="form-label">Full Name</label>
+              <input
+                type="text"
+                id="form-name"
+                name="name"
+                class="form-input"
+                placeholder="John Doe"
+                required
+                autocomplete="name"
+                aria-required="true"
+              />
+              <span class="form-error" id="name-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="form-email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                id="form-email"
+                name="email"
+                class="form-input"
+                placeholder="john@example.com"
+                required
+                autocomplete="email"
+                aria-required="true"
+              />
+              <span class="form-error" id="email-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="form-subject" class="form-label">Subject</label>
+              <input
+                type="text"
+                id="form-subject"
+                name="subject"
+                class="form-input"
+                placeholder="Project Inquiry"
+                required
+                aria-required="true"
+              />
+              <span class="form-error" id="subject-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="form-message" class="form-label">Message</label>
+              <textarea
+                id="form-message"
+                name="message"
+                class="form-input form-textarea"
+                placeholder="Tell me about your project or opportunity..."
+                rows="5"
+                required
+                aria-required="true"
+              ></textarea>
+              <span class="form-error" id="message-error" aria-live="polite"></span>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full">
+              <span>Send Message</span>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+
+            <!-- Success Message -->
+            <div class="form-success" id="form-success" role="alert" aria-live="polite" hidden>
+              Thank you! Your message has been sent successfully. I will get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__top">
+        <a href="#hero" class="navbar__logo footer__logo" aria-label="Back to top">
+          <span class="logo-text">G</span><span class="logo-dot">.</span>
+        </a>
+        <div class="footer__social">
+          <a href="https://github.com/gunalbasskaran" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="GitHub profile">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/gunal-" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="LinkedIn profile">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Gunal Basskaran. All rights reserved.</p>
+        <p class="footer__tagline">Built with passion and clean code.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="assets/script.js" defer></script>
 </body>
 </html>
-
